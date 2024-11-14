@@ -1,39 +1,55 @@
-# Gold Price Analysis and Forecasting Project
+# Gold Price Analysis and Forecasting
 
-This project provides a comprehensive analysis of gold prices over the past five years, covering trend analysis, volatility assessment, seasonality analysis, and a forecasting model using ARIMA. The analysis helps to understand patterns in gold prices, evaluate market volatility, and generate short-term price forecasts.
+## Project Overview
+This project aims to analyze historical gold prices and forecast near-term trends. The analysis involves exploring patterns in price movements, volatility, seasonal behavior, and potential correlations with other financial factors. This project serves as a foundation for understanding gold price dynamics and can be expanded with more complex predictive models in the future.
 
-## Project Structure
-The project includes the following steps:
-1. **Data Cleaning**: We used a custom data cleaning tool to ensure the dataset was clean and consistent before analysis.
-2. **Trend Analysis**: Analyzed long-term price trends using a 30-day moving average.
-3. **Volatility Analysis**: Examined daily price variability to understand market risk.
-4. **Seasonality and Statistical Patterns**: Investigated monthly patterns to uncover any recurring trends or seasonal behaviors.
-5. **Forecasting with ARIMA**: Developed a short-term forecast using an ARIMA model, with evaluation metrics to assess accuracy.
+## Data Description
+The dataset used in this project includes historical gold prices over the past five years. Key features include:
+- **Date**: The date of each record.
+- **Close**: The closing price of gold on each date.
+- **Volume**: The volume of gold traded.
+- **Dividends**: Any dividends associated with gold investments.
+- **Capital Gains**: Capital gains related to gold price movements.
 
-## Data Cleaning Tool
-To ensure accurate results, we used a **data cleaning tool** to prepare the dataset for analysis. This tool handles missing values, adjusts date formats, and performs initial data validation. The data cleaning step is crucial for improving data quality before applying any analytical methods.
+## Project Steps
 
-### Running the Data Cleaning Tool
-You can run the data cleaning tool with the following code snippet. Make sure the raw data file is saved in the `data/raw/` directory with the filename `gold_prices_raw.csv`. The cleaned data will be saved in `data/cleaned/cleaned_gold_prices.csv`.
+1. ### Trend Analysis
+   - **Objective**: To observe long-term trends in gold prices.
+   - **Method**: A 30-day moving average was calculated to smooth out daily fluctuations, highlighting sustained price trends over time.
 
-```python
-import pandas as pd
+2. ### Volatility Analysis
+   - **Objective**: To measure gold price variability.
+   - **Method**: Daily returns and a 30-day rolling standard deviation were calculated to capture periods of high and low volatility. This analysis provides insights into times of economic uncertainty or market stress.
 
-def clean_gold_data(input_file='data/raw/gold_prices_raw.csv', output_file='data/cleaned/cleaned_gold_prices.csv'):
-    # Load the dataset
-    data = pd.read_csv(input_file)
-    
-    # Convert the 'date' column to datetime format
-    if 'date' in data.columns:
-        data['date'] = pd.to_datetime(data['date'], errors='coerce')
-        data = data.dropna(subset=['date'])
-    
-    # Fill or drop any remaining missing values as needed
-    data = data.fillna(method='ffill').fillna(method='bfill')
-    
-    # Save the cleaned data
-    data.to_csv(output_file, index=False)
-    print(f"Data cleaned and saved to {output_file}")
+3. ### Seasonality and Statistical Patterns
+   - **Objective**: To identify recurring seasonal patterns in gold prices.
+   - **Method**: Monthly and annual statistics were calculated, and a box plot of monthly price distributions was created to visualize potential seasonal trends.
 
-# Run the data cleaning function
-clean_gold_data()
+4. ### Rolling Mean Model for Forecasting
+   - **Objective**: To create a simple short-term forecast for gold prices.
+   - **Method**: A 30-day rolling mean was used as a basic forecasting model. While this method is straightforward, it provides a baseline for understanding near-term trends.
+
+5. ### Correlation Analysis
+   - **Objective**: To examine potential relationships between gold prices and other financial factors.
+   - **Method**: A correlation matrix was generated for `close`, `volume`, `dividends`, and `capital gains`, then visualized with a heatmap to highlight strong relationships.
+
+6. ### Conclusion
+   - **Key Insights**: 
+      - Gold prices show long-term trends that respond to economic factors.
+      - Volatility is variable and likely influenced by broader financial conditions.
+      - Seasonal patterns exist, with certain months exhibiting higher or more variable prices.
+      - A correlation analysis highlighted relationships between gold prices and other factors, which could inform further predictive modeling.
+   - **Recommendations**:
+      - Explore more advanced models, such as machine learning algorithms, for improved forecast accuracy.
+      - Investigate additional features (e.g., inflation, interest rates) to understand external influences on gold prices.
+
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- Libraries: `pandas`, `matplotlib`, `seaborn`, `numpy`, `scikit-learn`, `statsmodels`
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/gold_analysis.git
