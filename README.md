@@ -1,55 +1,63 @@
-# Gold Price Analysis and Forecasting
+# **Gold Price Analysis and Machine Learning Prediction**
 
-## Project Overview
-This project aims to analyze historical gold prices and forecast near-term trends. The analysis involves exploring patterns in price movements, volatility, seasonal behavior, and potential correlations with other financial factors. This project serves as a foundation for understanding gold price dynamics and can be expanded with more complex predictive models in the future.
+---
 
-## Data Description
-The dataset used in this project includes historical gold prices over the past five years. Key features include:
-- **Date**: The date of each record.
-- **Close**: The closing price of gold on each date.
-- **Volume**: The volume of gold traded.
-- **Dividends**: Any dividends associated with gold investments.
-- **Capital Gains**: Capital gains related to gold price movements.
+## **Overview**
+This project analyzes historical gold price data over five years to identify trends, understand seasonal patterns, and develop a machine learning model to classify investment decisions as **Buy** or **Hold**. Through comprehensive data analysis, feature engineering, and predictive modeling, this project aims to provide actionable insights for investors.
 
-## Project Steps
+---
 
-1. ### Trend Analysis
-   - **Objective**: To observe long-term trends in gold prices.
-   - **Method**: A 30-day moving average was calculated to smooth out daily fluctuations, highlighting sustained price trends over time.
+## **Project Structure**
+- **Data Analysis**:
+  - Visualizations of historical gold price trends and seasonality.
+  - Volatility and return analysis to assess risk.
+- **Machine Learning**:
+  - Feature engineering to extract meaningful insights.
+  - Classification model to predict Buy/Hold investment signals.
+  - Threshold tuning to optimize model performance.
 
-2. ### Volatility Analysis
-   - **Objective**: To measure gold price variability.
-   - **Method**: Daily returns and a 30-day rolling standard deviation were calculated to capture periods of high and low volatility. This analysis provides insights into times of economic uncertainty or market stress.
+---
 
-3. ### Seasonality and Statistical Patterns
-   - **Objective**: To identify recurring seasonal patterns in gold prices.
-   - **Method**: Monthly and annual statistics were calculated, and a box plot of monthly price distributions was created to visualize potential seasonal trends.
+## **Key Features**
+1. **Descriptive Analysis**:
+   - Seasonal and trend analysis using boxplots and moving averages.
+   - Volatility analysis for risk assessment.
+2. **Predictive Modeling**:
+   - Random Forest Classifier trained on engineered features.
+   - SMOTE applied to address class imbalance.
+   - Threshold tuning to balance precision and recall for the **Buy** class.
+3. **Visualization**:
+   - Overlayed predictions on gold price charts to highlight Buy signals.
 
-4. ### Rolling Mean Model for Forecasting
-   - **Objective**: To create a simple short-term forecast for gold prices.
-   - **Method**: A 30-day rolling mean was used as a basic forecasting model. While this method is straightforward, it provides a baseline for understanding near-term trends.
+---
 
-5. ### Correlation Analysis
-   - **Objective**: To examine potential relationships between gold prices and other financial factors.
-   - **Method**: A correlation matrix was generated for `close`, `volume`, `dividends`, and `capital gains`, then visualized with a heatmap to highlight strong relationships.
+## **Results**
+1. **Analysis Highlights**:
+   - Identified seasonal trends in gold prices, showing consistent periodic fluctuations.
+   - Rolling volatility provided insights into periods of high and low market risk.
 
-6. ### Conclusion
-   - **Key Insights**: 
-      - Gold prices show long-term trends that respond to economic factors.
-      - Volatility is variable and likely influenced by broader financial conditions.
-      - Seasonal patterns exist, with certain months exhibiting higher or more variable prices.
-      - A correlation analysis highlighted relationships between gold prices and other factors, which could inform further predictive modeling.
-   - **Recommendations**:
-      - Explore more advanced models, such as machine learning algorithms, for improved forecast accuracy.
-      - Investigate additional features (e.g., inflation, interest rates) to understand external influences on gold prices.
+2. **Model Performance**:
+   - **Accuracy**: 76%
+   - **Buy Class Recall**: 38%
+   - **Buy Class Precision**: 28%
+   - Effective identification of some **Buy** opportunities, though precision remains a challenge.
 
-## Getting Started
+3. **Visual Insights**:
+   - Clear representation of Buy signals on gold price charts aids interpretability for investors.
 
-### Prerequisites
-- Python 3.x
-- Libraries: `pandas`, `matplotlib`, `seaborn`, `numpy`, `scikit-learn`, `statsmodels`
+---
 
-### Installation
-1. Clone the repository:
+## **Tools and Libraries**
+- **Python Libraries**:
+  - `pandas`, `numpy` for data preprocessing and manipulation.
+  - `matplotlib`, `seaborn` for data visualization.
+  - `scikit-learn` for machine learning model development.
+  - `imblearn` for handling class imbalance using SMOTE.
+
+---
+
+## **How to Run**
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/gold_analysis.git
+   git clone https://github.com/Mattyb883/gold_analysis.git
+   cd gold_analysis
