@@ -2,6 +2,16 @@
 
 ---
 
+## **Table of Contents**
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Key Features](#key-features)
+- [Results](#results)
+- [Tools and Libraries](#tools-and-libraries)
+- [How to Run](#how-to-run)
+
+---
+
 ## **Overview**
 This project analyzes historical gold price data over five years to identify trends, understand seasonal patterns, and develop a machine learning model to classify investment decisions as **Buy** or **Hold**. Through comprehensive data analysis, feature engineering, and predictive modeling, this project aims to provide actionable insights for investors.
 
